@@ -3,7 +3,10 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 import db from "./db/dbConnect.js";
 import mangaSeed from "./db/dbSeedJSON.js";
+import router from "./routes/userRoutes.js";
+import userRoutes from "./controllers/userControllers.js";
 import mangaRoutes from './routes/mangaRoutes.js'
+
 
 dotenv.config();
 
