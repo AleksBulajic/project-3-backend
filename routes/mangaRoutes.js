@@ -1,36 +1,15 @@
 import {Router} from 'express'
-import * as controllers from '../controller/mangaController.js'
+import * as controllers from '../controllers/mangaControllers.js'
 
 const router = Router()
 
+//retrieve a list of all mangas
+router.get('/all', controllers.getMangas)
 
+//retrieve a specific manga by title
+router.get('/title/:title', controllers.getMangaByTitle)
 
-//retrive a list of all free games
-router.get('/all', controllers)
-
-
-
-// //retrive a speciic game by id
-router.get('/:id',controllers)
-
-
-
-
-
-//get game by title
-router.get('/title/:title', controllers)
-
-
-
-// //Create a new game
-router.post('/all', controllers)
-
-
-// //Update a game by id
-router.put('/:id',controllers)
-
-
-// //delete games by id
-router.delete('/delete/:id', controllers)
+//retrieve a specific manga by id
+router.get('/:id',controllers.getMangaById)
  
 export default router
