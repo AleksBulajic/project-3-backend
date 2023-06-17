@@ -1,6 +1,7 @@
 import { Router } from "express";
 import * as controllers from "../controllers/userControllers.js";
 import verifyAuth from "../middleware/verifyAuth.js";
+import session from "express-session";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -23,6 +24,9 @@ router.post("/signup", controllers.createUser);
 
 // Signin User
 router.post("/signin", controllers.userSignin);
+
+// Sign out User
+router.get("/signout/:name", controllers.userSignout);
 
 export default router;
 export { controllers };

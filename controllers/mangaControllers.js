@@ -3,9 +3,11 @@ import Manga from '../models/manga.js';
 // Get all mangas
 export const getMangas = async (req, res) => {
   try {
-    const mangas = await Manga.find({});
-    res.status(200).json(mangas);
-    console.log(`THESE ARE THE MANGAS FROM MANGA CONTROLLERS: ${mangas}`);
+    if(!req.header.cookie){
+      const mangas = await Manga.find({});
+      res.status(200).json(mangas);
+      console.log(`THESE ARE THE MANGAS FROM MANGA CONTROLLERS: ${mangas}`);
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -5,10 +5,12 @@ import db from "./db/dbConnect.js";
 // import mangaSeed from "./db/dbSeedJSON.js";
 import userRoutes from "./routes/userRoutes.js";
 import mangaRoutes from "./routes/mangaRoutes.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
 const app = express();
+app.use(cookieParser());
 
 app.use(cors());
 app.use(express.json());

@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import * as dotenv from "dotenv";
-
 dotenv.config();
 const secretKey = process.env.SECRET_KEY;
 //GET all users
@@ -172,4 +171,13 @@ export const userSignin = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-};
+}
+
+export const userSignout = async (req, res) => {
+  res.clearCookie('cookieName');
+  res.send('Cookie cleared');
+}
+  // Perform any additional logout logic, such as clearing session data, etc.
+
+  // Redirect or send a response to indicate successful logout
+;
