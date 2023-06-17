@@ -1,21 +1,25 @@
-import { Router } from 'express';
-import * as controllers from '../controllers/userControllers';
+import { Router } from "express";
+import * as controllers from "../controllers/userControllers.js";
+import { isLoggedIn } from "../middleware/auth.js";
 
 const router = Router();
+//GET all users
 
+router.get("/all", controllers.getAllUsers);
 // GET user
-router.get('/users/:id', controllers.getUser);
-
-// POST user
-router.post('/users', controllers.postUser);
+router.get("/:name", controllers.getUser);
 
 // UPDATE user
-router.put('/users/:id', controllers.updateUser);
+router.put("/update/:name", controllers.updateUser);
 
 // DELETE user
-router.delete('/users/:id', controllers.deleteUser);
+router.delete("/delete/:name", controllers.deleteUser);
 
-export default userRoutes;
+// POST to create a new user
+router.post("/signup", controllers.createUser);
 
-  
+// Signin User
+router.post("/signin", controllers.userSignin);
 
+export default router;
+export { controllers };
