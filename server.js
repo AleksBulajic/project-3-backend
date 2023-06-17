@@ -3,6 +3,10 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 import db from "./db/dbConnect.js";
 import mangaSeed from "./db/dbSeedJSON.js";
+import router from "./routes/userRoutes.js";
+import userRoutes from "./controllers/userControllers.js";
+import mangaRoutes from './routes/mangaRoutes.js'
+
 
 dotenv.config();
 
@@ -38,8 +42,8 @@ app.use((err, req, res, next) => {
 // Middleware to parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/manga', mangaRoutes);
-app.use('/users', userRoutes);
+app.use('/mangas', mangaRoutes);
+// app.use('/users', userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT: ${PORT}!`);
