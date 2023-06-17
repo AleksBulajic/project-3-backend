@@ -1,19 +1,20 @@
 import { Router } from "express";
 import * as controllers from "../controllers/userControllers.js";
-import { isLoggedIn } from "../middleware/auth.js";
+import verifyAuth from "../middleware/verifyAuth.js";
+
 
 const router = Router();
 //GET all users
 
-router.get("/all", controllers.getAllUsers);
+router.get("/all", verifyAuth, controllers.getAllUsers);
 // GET user
 router.get("/:name", controllers.getUser);
 
 // UPDATE user
-router.put("/update/:name", controllers.updateUser);
+router.put("/update/:name", verifyAuth, controllers.updateUser);
 
 // DELETE user
-router.delete("/delete/:name", controllers.deleteUser);
+router.delete("/delete/:name", verifyAuth, controllers.deleteUser);
 
 // POST to create a new user
 router.post("/signup", controllers.createUser);
