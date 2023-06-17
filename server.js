@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
 import db from "./db/dbConnect.js";
-import mangaSeed from "./db/dbSeedJSON.js";
+// import mangaSeed from "./db/dbSeedJSON.js";
 import userRoutes from "./routes/userRoutes.js";
 import mangaRoutes from "./routes/mangaRoutes.js";
 

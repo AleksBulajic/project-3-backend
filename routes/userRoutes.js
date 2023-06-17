@@ -1,14 +1,16 @@
 import { Router } from "express";
 import * as controllers from "../controllers/userControllers.js";
 import verifyAuth from "../middleware/verifyAuth.js";
+import * as dotenv from "dotenv";
 
+dotenv.config();
 
 const router = Router();
 //GET all users
 
 router.get("/all", verifyAuth, controllers.getAllUsers);
 // GET user
-router.get("/:name", controllers.getUser);
+router.get("/:name", verifyAuth, controllers.getUser);
 
 // UPDATE user
 router.put("/update/:name", verifyAuth, controllers.updateUser);

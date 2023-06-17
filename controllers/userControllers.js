@@ -3,6 +3,10 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+const secretKey = process.env.SECRET_KEY;
 //GET all users
 export const getAllUsers = async (req, res) => {
   try {
@@ -159,13 +163,12 @@ export const userSignin = async (req, res) => {
     }
 
     // Create and sign the JWT token
-    const payload = { name: user.username };
-    const token = jwt.sign(payload, process.env.SECRET_KEY);
-
+    const payload = { name: user.name, password: user.password };
+    console.log(JSON.stringify(payload));
+    const token = jwt.sign(payload, secretKey);
     // Set the token as a cookie
     res.cookie("token", token, { httpOnly: true });
-
-    res.json({ message: "Login successful" });
+    res.json({ message: "Welcome home, weeb!" });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
