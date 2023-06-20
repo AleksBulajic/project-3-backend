@@ -171,13 +171,12 @@ export const userSignin = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-}
+};
 
 export const userSignout = async (req, res) => {
-  res.clearCookie('cookieName');
-  res.send('Cookie cleared');
-}
-  // Perform any additional logout logic, such as clearing session data, etc.
+  res.clearCookie("cookieName");
+  res.send("Cookie cleared");
+};
+// Perform any additional logout logic, such as clearing session data, etc.
 
-  // Redirect or send a response to indicate successful logout
-;
+// Redirect or send a response to indicate successful logout
