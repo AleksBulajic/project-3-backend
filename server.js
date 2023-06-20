@@ -5,7 +5,9 @@ import db from "./db/dbConnect.js";
 // import mangaSeed from "./db/dbSeedJSON.js";
 import userRoutes from "./routes/userRoutes.js";
 import mangaRoutes from "./routes/mangaRoutes.js";
+import favoriteRoutes from "./routes/favoriteRoutes.js"
 import cookieParser from "cookie-parser";
+
 
 dotenv.config();
 
@@ -43,6 +45,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/mangas", mangaRoutes);
 app.use("/users", userRoutes);
+app.use("/favorites", favoriteRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT: ${PORT}!`);

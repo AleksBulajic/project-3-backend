@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Set the MongoDB connection URI
-const MONGODB_URI = process.env.DATABASE_URI;
+const DATABASE_URL = process.env.DATABASE_URL ;
 
 // Uncomment to debug Mongoose queries
 // mongoose.set('debug', true)
@@ -17,7 +17,7 @@ mongoose.set("returnOriginal", false);
 // Setup connection for MongoDB
 // https://mongoosejs.com/docs/connections.html#connections
 mongoose
-  .connect(MONGODB_URI)
+  .connect(DATABASE_URL )
   .catch((error) =>
     console.error("Error connecting to MongoDB: ", error.message)
   );
