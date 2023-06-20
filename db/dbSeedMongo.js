@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import db from "./dbConnect.js";
 import Manga from "../models/manga.js";
 import mangadetails from "../data/mangaDetails.json" assert { type: "json" };
+import mangaSynopsis from "../data/mangaSynopsis.json" assert { type: "json" };
 
 //Manga Data
 let mangaData = mangadetails.map((manga) => {

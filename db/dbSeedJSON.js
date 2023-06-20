@@ -20,49 +20,56 @@ async function mangaSeed() {
     },
   };
 
-//   await axios
-//     .request(allManga)
-//     .then(function (response) {
-//       // Extract the data from the response
-//       const data = response.data;
+  //   await axios
+  //     .request(allManga)
+  //     .then(function (response) {
+  //       // Extract the data from the response
+  //       const data = response.data;
 
-//       // Convert the data to JSON format
-//       const jsonData = JSON.stringify(data, null, 2);
+  //       // Convert the data to JSON format
+  //       const jsonData = JSON.stringify(data, null, 2);
 
-//       // Save the JSON data to a file
-//       fs.writeFile("./data/manga.json", jsonData, "utf8", function (err) {
-//         if (err) {
-//           console.error("Error writing JSON file:", err);
-//           return;
-//         }
-//         console.log("Data has been seeded and saved to manga.json");
-//       });
-//     })
-//     .catch(function (error) {
-//       console.error("Error retrieving data:", error);
-//     });
-// }
-// export default mangaSeed;
+  //       // Save the JSON data to a file
+  //       fs.writeFile("./data/manga.json", jsonData, "utf8", function (err) {
+  //         if (err) {
+  //           console.error("Error writing JSON file:", err);
+  //           return;
+  //         }
+  //         console.log("Data has been seeded and saved to manga.json");
+  //       });
+  //     })
+  //     .catch(function (error) {
+  //       console.error("Error retrieving data:", error);
+  //     });
+  // }
+  // export default mangaSeed;
 
-const ids = [2, 1706, 656, 13, 1, 51, 25, 642, 70345, 4632, 16765, 44489, 3, 1303, 14893, 126479, 657, 90125, 23751, 89357, 123992, 336, 104, 1224, 56805, 44227, 35423, 21525, 34053, 9115, 651, 104039, 100448, 74697, 70261, 28, 14483, 91941, 40171, 44347, 116778, 26, 418, 86119, 55215, 7, 145483, 72467, 21, 7375];
-const requests = ids.map(id => {
-  const allMangaDetails = {
-    method: 'GET',
-    url: `https://myanimelist.p.rapidapi.com/manga/${id}`,
-    headers: {
-      'X-RapidAPI-Key': apiKey,
-      'X-RapidAPI-Host': 'myanimelist.p.rapidapi.com'
-    }
-  };
-  return axios.request(allMangaDetails);
-});
+  const ids = [
+    2, 1706, 656, 13, 1, 51, 25, 642, 70345, 4632, 16765, 44489, 3, 1303, 14893,
+    126479, 657, 90125, 23751, 89357, 123992, 336, 104, 1224, 56805, 44227,
+    35423, 21525, 34053, 9115, 651, 104039, 100448, 74697, 70261, 28, 14483,
+    91941, 40171, 44347, 116778, 26, 418, 86119, 55215, 7, 145483, 72467, 21,
+    7375,
+  ];
+  const requests = ids.map((id) => {
+    const allMangaDetails = {
+      method: "GET",
+      url: `https://myanimelist.p.rapidapi.com/manga/${id}`,
+      headers: {
+        "X-RapidAPI-Key": apiKey,
+        "X-RapidAPI-Host": "myanimelist.p.rapidapi.com",
+      },
+    };
+    return axios.request(allMangaDetails);
+  });
 
-// try {
-//   const responses = await Promise.all(requests);
-//   const data = responses.map(response => response.data);
-  
-  fs.writeFileSync('./data/mangaDetails.json', JSON.stringify(data, null, 2));
-  console.log('Data has been seeded and saved to mangaDetails.json');
-} catch (error) {
-  console.error(error);
+  try {
+    const responses = await Promise.all(requests);
+    const data = responses.map((response) => response.data);
+
+    fs.writeFileSync("./data/mangaSynopsis.json", JSON.stringify(data, null, 2));
+    console.log("Data has been seeded and saved to mangaSynopsis.json");
+  } catch (error) {
+    console.error(error);
+  }
 }

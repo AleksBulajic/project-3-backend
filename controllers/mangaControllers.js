@@ -42,3 +42,5 @@ export const getMangaByTitle = async (req, res) => {
       res.status(400).json({ error: error.message });
     }
 };
+
+//need to keep working on the full CRUD
