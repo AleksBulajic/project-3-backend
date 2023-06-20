@@ -1,13 +1,23 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
- const mangaSchema = mongoose.Schema(
-    {
-        "myanimelist_url": String,
-        "title": String,
-        "picture_url": String,
-        "score": Number,
-      });
+const mangaSchema = new mongoose.Schema({
+  picture_url: String,
+  alternative_titles: {
+    english: String,
+  },
+  information: {
+    authors: [
+      {
+        name: String,
+      },
+    ],
+  },
+  statistics: {
+    score: Number,
+  },
+  synopsis: String,
+});
 
-     const Manga =  mongoose.model('Manga', mangaSchema);
-    
-      export default Manga
+const Manga = mongoose.model("Manga", mangaSchema);
+
+export default Manga;
