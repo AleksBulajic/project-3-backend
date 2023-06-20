@@ -1,20 +1,10 @@
 import mongoose from "mongoose";
 
-const mangaSchema = new mongoose.Schema({
+const mangaSchema = mongoose.Schema({
+  myanimelist_url: String,
+  title: String,
   picture_url: String,
-  alternative_titles: {
-    english: String,
-  },
-  information: {
-    authors: [
-      {
-        name: String,
-      },
-    ],
-  },
-  statistics: {
-    score: Number,
-  },
+  score: Number,
   synopsis: String,
 });
 
