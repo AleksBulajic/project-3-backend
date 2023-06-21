@@ -167,7 +167,7 @@ export const userSignin = async (req, res) => {
     const token = jwt.sign(payload, secretKey);
     // Set the token as a cookie
     res.cookie("token", token, { httpOnly: true });
-    res.json({ message: "Welcome home, weeb!" });
+    res.json({ message: "Welcome home, weeb!", token: token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
