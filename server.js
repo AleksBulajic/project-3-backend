@@ -6,6 +6,7 @@ import db from "./db/dbConnect.js";
 import userRoutes from "./routes/userRoutes.js";
 import mangaRoutes from "./routes/mangaRoutes.js";
 import favoriteRoutes from "./routes/favoriteRoutes.js"
+import authRoutes from "./routes/authRoutes.js"
 import cookieParser from "cookie-parser";
 
 
@@ -46,6 +47,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/mangas", mangaRoutes);
 app.use("/users", userRoutes);
 app.use("/favorites", favoriteRoutes);
+app.use("/auth", authRoutes)
 
 
 app.listen(PORT, () => {
