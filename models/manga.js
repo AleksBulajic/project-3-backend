@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const mangaSchema = mongoose.Schema({
+  aired_on: String,
   myanimelist_url: String,
   title: String,
   picture_url: String,

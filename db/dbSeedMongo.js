@@ -6,6 +6,7 @@ import manga from "../data/manga.json" assert { type: "json" };
 //Manga Data
 let mangaData = manga.map((manga) => {
   return {
+    aired_on: manga.aired_on,
     myanimelist_url: manga.myanimelist_url,
     title: manga.title,
     picture_url: manga.picture_url,
