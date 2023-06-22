@@ -11,6 +11,6 @@ router.get("/all", verifyAuth, controllers.getMangas);
 router.get("/title/:title", verifyAuth, controllers.getMangaByTitle);
 
 //retrieve a specific manga by id
-router.get("id/:id", verifyAuth, controllers.getMangaById);
+router.get("/id/:id", verifyAuth, controllers.getMangaById);
 
 export default router;
