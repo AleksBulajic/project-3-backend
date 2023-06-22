@@ -6,10 +6,7 @@ dotenv.config();
 
 const router = Router();
 
-
-
 router.get("/manga", controllers.getAllFavorites);
-
 
 router.get("/manga/:id", controllers.getFavorites);
 
@@ -20,6 +17,3 @@ router.put("/update/manga/:id", controllers.updateFavorite);
 router.delete("/manga/:id", controllers.deleteFavorite);
 
 export default router;
-
-
-
