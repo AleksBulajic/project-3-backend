@@ -1,6 +1,6 @@
-import verifyAuth from "../middlewares/veryAuth.js";
+
 import { Router } from "express";
-import verifyAuth from "../middlewares/veryAuth.js";
+import verifyAuth from "../middleware/verifyAuth.js";
 
 const router = Router();
 
