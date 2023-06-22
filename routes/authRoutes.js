@@ -12,7 +12,9 @@ router.get('/isTokenValid', verifyAuth, async (req, res) => {
           valid: true,
           status: 200,
           message: "Token is valid"
+          
         })
+        console.log(req.id)
       }
     } catch (error) {
       res.status(400).json({

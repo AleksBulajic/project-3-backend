@@ -8,6 +8,8 @@ import mangaRoutes from "./routes/mangaRoutes.js";
 import favoriteRoutes from "./routes/favoriteRoutes.js"
 import authRoutes from "./routes/authRoutes.js"
 import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import verifyAuth from "./middleware/verifyAuth.js";
 
 
 dotenv.config();
@@ -17,6 +19,8 @@ app.use(cookieParser());
 
 app.use(cors());
 app.use(express.json());
+
+app.use(morgan('tiny'));
 
 const PORT = process.env.PORT || 3000;
 
