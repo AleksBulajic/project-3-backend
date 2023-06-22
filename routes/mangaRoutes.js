@@ -8,9 +8,9 @@ const router = Router();
 router.get("/all", controllers.getMangas, verifyAuth);
 
 //retrieve a specific manga by title
-router.get("/title/:title", controllers.getMangaByTitle, verifyAuth);
+router.get("/title/:title", verifyAuth, controllers.getMangaByTitle);
 
 //retrieve a specific manga by id
-router.get("id/:id", controllers.getMangaById, verifyAuth);
+router.get("id/:id", verifyAuth, controllers.getMangaById);
 
 export default router;

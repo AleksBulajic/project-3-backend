@@ -48,4 +48,4 @@ export const getMangaByTitle = async (req, res) => {
   }
 };
 
-//need to keep working on the full CRUD
+

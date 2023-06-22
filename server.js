@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 
-app.use(cors());
+app.use(cors( {allowedHeaders: ["Authorization","Content-Type"],}));
 app.use(express.json());
 
 app.use(morgan('tiny'));
