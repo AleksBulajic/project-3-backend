@@ -139,12 +139,12 @@ export const createUser = async (req, res) => {
     });
     await newUser.save();
 
-    const token = jwt.sign({newUser}, secretKey)
+    const token = jwt.sign({ newUser }, secretKey);
 
-     return res.status(200).json({
+    return res.status(200).json({
       status: 200,
-      message: `Successfully created user: ${newUser.name}`
-    }) 
+      message: `Successfully created user: ${newUser.name}`,
+    });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -168,11 +168,11 @@ export const userSignin = async (req, res) => {
 
     // Create and sign the JWT token
     const token = jwt.sign(user.password, secretKey);
-    console.log(`Message from user contoller token: ${token}`)
+    console.log(`Message from user contoller token: ${token}`);
     // Set the token as a cookie
     // res.cookie("token",token);
     // console.log(`Message from user cookie token: ${res.cookie(token)}`)
-    res.json({ message: "Welcome home, weeb!",  token });
+    res.json({ message: "Welcome home, weeb!", token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
