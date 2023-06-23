@@ -79,12 +79,29 @@ The server implements user authentication and authorization using JSON Web Token
 
 This project has been developed by the following contributors:
 
-- lst68868
-- kevininga
-- AleksBulajic
-- alibay97
+Lst68868 (Leo) - Technical Lead
 
-We appreciate their contributions and dedication to making this project a success.
+- Created the public frontend and backend repositories.
+- Deployed the frontend and backend to Netlify and Heroku.
+- Conducted code reviews and managed git pulls, merges, and conflicts.
+- Made significant contributions to backend and frontend authentication.
+
+AleksBulajic - Project Manager
+
+- Managed group scheduling and delegated responsibilities.
+- Conducted and scheduled standup meetings.
+- Made significant contributions to backend and frontend authentication.
+
+kevininga - Backend and Database Specialist
+
+- Implemented backend routes and MongoDB integration.
+- Collaborated on backend architecture and best practices.
+
+alibay97 (Alison) - Lead Designer and Frontend Developer
+
+- Led frontend design efforts.
+- Made significant contributions to frontend development and CSS styling.
+- Collaborated on frontend architecture and best practices.
 
 ## Contact
 
