@@ -26,7 +26,7 @@ router.post("/signup", controllers.createUser);
 router.post("/signin", controllers.userSignin);
 
 // Sign out User
-router.get("/signout/:name", controllers.userSignout);
+router.get("/signout", controllers.userSignout);
 
 export default router;
 export { controllers };

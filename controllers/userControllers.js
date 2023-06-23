@@ -179,9 +179,20 @@ export const userSignin = async (req, res) => {
 };
 
 export const userSignout = async (req, res) => {
-  // res.clearCookie("cookieName");
-  // res.send("Cookie cleared");
+  try {
+    // Clear the token cookie
+    // res.clearCookie("token");
+    console.log("HELLO");
+    // Clear all items from local storage
+    localStorage.clear();
+    console.log(localStorage);
+
+    res.status(200).json({ message: "Successfully signed out" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
+
 // Perform any additional logout logic, such as clearing session data, etc.
 
 // Redirect or send a response to indicate successful logout
