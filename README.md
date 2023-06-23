@@ -1,4 +1,4 @@
-# Manga Browsing Web App (Backend)
+# MangaVerse_API
 
 This repository contains the backend code for the Manga Browsing Web App, a full-stack web application that allows users to browse and manage their favorite mangas.
 
