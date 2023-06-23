@@ -35,14 +35,19 @@ export const getMangaById = async (req, res) => {
 export const getMangaByTitle = async (req, res) => {
   try {
     const { title } = req.params;
+
+    // Use a regular expression for a case-insensitive search
+    // and find all manga titles that start with the searched title.
     const manga = await Manga.find({ title: new RegExp("^" + title, "i") });
 
-    console.log(manga);
+    if (manga.length === 0) {
+      return res.status(404).json({ error: "No mangas found with that title" });
+    }
 
-    // if (!manga) {
-    //   return res.status(404).json({ error: "Manga with that title not found" });
-    // }
-    return res.status(200).json({ manga });
+    // Sort the results in ascending order based on the title.
+    manga.sort((a, b) => a.title.localeCompare(b.title));
+
+    res.status(200).json(manga);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
