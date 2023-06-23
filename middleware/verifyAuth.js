@@ -1,13 +1,11 @@
+// authMiddleware.js
 import jwt from "jsonwebtoken";
-import * as dotenv from "dotenv";
 
-dotenv.config();
 const secretKey = process.env.SECRET_KEY;
 
-export default function verifyAuth(req, res, next) {
-  const token = req.headers.authorization;
 
-  if (!token) {
+export default async function verifyAuth(req, res, next) {
+  if (!req.headers.authorization) {
     return res.status(401).json({
       status: 401,
       message: "You must signin first.",
@@ -15,14 +13,16 @@ export default function verifyAuth(req, res, next) {
   }
 
   try {
+    const token = req.headers.authorization;
     const data = jwt.verify(token, secretKey);
-    req.id = data.id;
-    next();
+
+    return next();
   } catch (err) {
-    console.error(`JWT verification error: ${err}`);
+    console.log(`Message from verifyAuth: ${err}`);
     return res.status(401).json({
       status: 401,
-      message: "Invalid or expired token.",
+      message: "Invalid token.",
     });
   }
 }
+
