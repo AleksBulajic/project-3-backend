@@ -103,6 +103,18 @@ alibay97 (Alison) - Lead Designer and Frontend Developer
 - Made significant contributions to frontend development and CSS styling.
 - Collaborated on frontend architecture and best practices.
 
+## Contributing
+
+Contributions to the project are welcome! If you would like to contribute, please follow these steps:
+
+1. Fork the repository
+2. Create a new branch for your feature/bug fix: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Add your commit message"`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a pull request
+
+Please make sure to follow the code style guide and maintain consistency with the existing codebase.
+
 ## Contact
 
 For any inquiries or further information, please feel free to reach out to any of the contributors mentioned above.
