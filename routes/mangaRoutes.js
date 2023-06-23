@@ -14,4 +14,5 @@ router.get("/title/:title",  controllers.getMangaByTitle, verifyAuth,
 //retrieve a specific manga by id
 router.get("id/:id",  controllers.getMangaById, verifyAuth,);
 
+
 export default router;

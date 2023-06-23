@@ -12,6 +12,8 @@ let mangaData = manga.map((manga) => {
     picture_url: manga.picture_url,
     score: manga.score,
     synopsis: manga.synopsis,
+    authors: manga.authors,
+    firstTenPages: manga.firstTenPages,
   };
 });
 
