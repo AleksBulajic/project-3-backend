@@ -6,7 +6,10 @@ import db from "./db/dbConnect.js";
 import userRoutes from "./routes/userRoutes.js";
 import mangaRoutes from "./routes/mangaRoutes.js";
 import favoriteRoutes from "./routes/favoriteRoutes.js"
+import authRoutes from "./routes/authRoutes.js"
 import cookieParser from "cookie-parser";
+import morgan from "morgan";
+import verifyAuth from "./middleware/verifyAuth.js";
 
 
 dotenv.config();
@@ -14,8 +17,15 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    allowedHeaders: ["Authorization", "Content-Type"],
+  })
+);
 app.use(express.json());
+
+app.use(morgan('tiny'));
 
 const PORT = process.env.PORT || 3000;
 
@@ -46,6 +56,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/mangas", mangaRoutes);
 app.use("/users", userRoutes);
 app.use("/favorites", favoriteRoutes);
+app.use("/auth", authRoutes)
 
 
 app.listen(PORT, () => {

@@ -3,11 +3,13 @@ import Manga from "../models/manga.js";
 // Get all mangas
 export const getMangas = async (req, res) => {
   try {
-    if (!req.header.cookie) {
-      const mangas = await Manga.find({});
-      res.status(200).json(mangas);
-      console.log(`THESE ARE THE MANGAS FROM MANGA CONTROLLERS: ${mangas}`);
-    }
+    // if (!req.headers.authorization) {
+    const mangas = await Manga.find({});
+    //   res.status(200).json(mangas);
+    //   // console.log(`THESE ARE THE MANGAS FROM MANGA CONTROLLERS: ${mangas}`);
+    // }
+
+    res.status(200).json(mangas);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -50,3 +52,5 @@ export const getMangaByTitle = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+
